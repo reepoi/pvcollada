@@ -26,7 +26,7 @@ jobs:
       - name: Checkout PVCollada and COLLADA schemas, and the validation script
         uses: actions/checkout@v4
         with:
-          sparse-checkout:
+          sparse-checkout: |
             pvcollada20_schema/pvcollada_schema_0.1.xsd
             pvcollada20_schema/collada_schema_1_5.xsd
             .github/workflows/test_schema_is_parsable.py
