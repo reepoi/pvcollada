@@ -60,10 +60,12 @@
     </xs:element>
 
 
-	<xs:element name="modules">
-        <xs:sequence>
-        	<xs:element name="module" type="module_type">
-        </xs:sequence>
-   	</xs:element>
+    <xs:element name="modules">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="module" type="module_type"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
 </xs:schema>
