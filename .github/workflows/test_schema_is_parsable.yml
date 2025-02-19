@@ -1,0 +1,35 @@
+name: Validate PVCollada Schema
+
+on:
+  push:
+    paths:
+      - pvcollada20_schema/pvcollada_schema_0.1.xsd
+      - pvcollada20_schema/collada_schema_1_5.xsd
+      - .github/workflows/test_schema_is_parsable.py
+  pull_request:
+    paths:
+      - pvcollada20_schema/pvcollada_schema_0.1.xsd
+      - pvcollada20_schema/collada_schema_1_5.xsd
+      - .github/workflows/validate_pvcollada_schema.py
+
+jobs:
+  validate-schema:
+    name: Parse schema
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install lxml Python dependency
+        run: pip3 install lxml==5.3.1
+      - name: Checkout PVCollada and COLLADA schemas, and the validation script
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout:
+            pvcollada20_schema/pvcollada_schema_0.1.xsd
+            pvcollada20_schema/collada_schema_1_5.xsd
+            .github/workflows/test_schema_is_parsable.py
+          sparse-checkout-cone-mode: false
+      - name: Run parser
+        run: python3 .github/workflows/test_schema_is_parsable.py pvcollada20_schema/pvcollada_schema_0.1.xsd
