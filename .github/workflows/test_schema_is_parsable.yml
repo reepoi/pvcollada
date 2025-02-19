@@ -11,6 +11,7 @@ on:
       - pvcollada20_schema/pvcollada_schema_0.1.xsd
       - pvcollada20_schema/collada_schema_1_5.xsd
       - .github/workflows/validate_pvcollada_schema.py
+  workflow_dispatch:
 
 jobs:
   validate-schema:
