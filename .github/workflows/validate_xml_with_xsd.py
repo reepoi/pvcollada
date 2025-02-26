@@ -12,11 +12,10 @@ if __name__ == '__main__':
         xml_doc = etree.XML(xml.read())
 
     schema = etree.XMLSchema(schema_root)
-    try:
-        schema.assertValid(xml_doc)
+    if schema.validate(xml_doc):
         print('XML is valid.')
-    except etree.DocumentInvalid as e:
+    else:
         print('! XML is invalid.')
         for error in schema.error_log:
             print(' -', error.message)
-        raise e
+        exit(1)
