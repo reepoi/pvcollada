@@ -1,4 +1,4 @@
-name: Validate PVCollada Schema
+name: Test PVCollada schema is parsable
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
     paths:
       - pvcollada20_schema/pvcollada_schema_0.1.xsd
       - pvcollada20_schema/collada_schema_1_5.xsd
-      - .github/workflows/validate_pvcollada_schema.py
+      - .github/workflows/test_schema_is_parsable.py
   workflow_dispatch:
 
 jobs:
