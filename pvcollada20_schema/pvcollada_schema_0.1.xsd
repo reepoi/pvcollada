@@ -40,7 +40,7 @@
     <xs:annotation>
       <xs:documentation>Module product-level data.</xs:documentation>
     </xs:annotation>
-	  <xs:sequence>
+	  <xs:all>
       <xs:element name="manufacturer" type="xs:string" minOccurs="0"/>
       <xs:element name="name" type="xs:string">
   	    <xs:annotation>
@@ -142,7 +142,7 @@
 	        <xs:documentation>Voltage at maximum power point at STC, V.</xs:documentation>
         </xs:annotation>
       </xs:element>
-		</xs:sequence>
+		</xs:all>
     <xs:attribute name="id" use="required" type="xs:ID"/>
   </xs:complexType>
 
@@ -150,7 +150,7 @@
     <xs:annotation>
       <xs:documentation>Inverter product-level data.</xs:documentation>
     </xs:annotation>
-	  <xs:sequence>
+	  <xs:all>
       <xs:element name="manufacturer" type="xs:string" minOccurs="0"/>
       <xs:element name="name" type="xs:string">
   	    <xs:annotation>
@@ -275,7 +275,7 @@
 	        <xs:documentation>Mesh describing inverter object in 3D scene.</xs:documentation>
         </xs:annotation>
       </xs:element>
-		</xs:sequence>
+		</xs:all>
     <xs:attribute name="id" use="required" type="xs:ID"/>
   </xs:complexType>
 
@@ -283,7 +283,7 @@
     <xs:annotation>
       <xs:documentation>Combiner product-level data</xs:documentation>
     </xs:annotation>
-	  <xs:sequence>
+	  <xs:all>
       <xs:element name="manufacturer" type="xs:string" minOccurs="0"/>
       <xs:element name="name" type="xs:string">
   	    <xs:annotation>
@@ -295,7 +295,7 @@
 	        <xs:documentation>Number of inputs to combiner.</xs:documentation>
         </xs:annotation>
       </xs:element>
-		</xs:sequence>
+		</xs:all>
     <xs:attribute name="id" use="required" type="xs:ID"/>
   </xs:complexType>
 
@@ -303,7 +303,7 @@
     <xs:annotation>
       <xs:documentation>Transformer product-level data</xs:documentation>
     </xs:annotation>
-	  <xs:sequence>
+	  <xs:all>
       <xs:element name="manufacturer" type="xs:string" minOccurs="0"/>
       <xs:element name="name" type="xs:string">
   	    <xs:annotation>
@@ -356,23 +356,23 @@
 	        <xs:documentation>Mesh describing transformer object in 3D scene.</xs:documentation>
         </xs:annotation>
       </xs:element>
-		</xs:sequence>
+		</xs:all>
     <xs:attribute name="id" use="required" type="xs:ID"/>
   </xs:complexType>
 
   <xs:element name="software">
 	  <!-- add version, or read from technique label? -->
     <xs:complexType>
-      <xs:sequence>
+      <xs:all>
         <xs:element name="source" type="xs:string"/>
         <xs:element name="target" type="xs:string" minOccurs="0"/>
-      </xs:sequence>
+      </xs:all>
     </xs:complexType>
   </xs:element>
 
   <xs:element name="project">
     <xs:complexType>
-      <xs:sequence>
+      <xs:all>
         <xs:element name="name" type="xs:string"/>
         <xs:element name="drawing" type="xs:string"/>
         <xs:element name="company" type="xs:string"/>
@@ -451,14 +451,14 @@
             <xs:documentation xml:lang="en">AC limit of the grid connection, W.</xs:documentation>
           </xs:annotation>
         </xs:element>
-      </xs:sequence>
+      </xs:all>
     </xs:complexType>
   </xs:element>
 
   <xs:element name="terrain">
 	  <!-- need to add: albedo, areal picture, ground_slope, ground_azimuth, digital_elevation_model -->
     <xs:complexType>
-      <xs:sequence>
+      <xs:all>
     		<xs:element name="bounding_box_min" type="collada:float3_type">
 	    		<xs:annotation>
 		    		<xs:documentation>Corner of bounding box. Opposite corner in bounding_box_max.</xs:documentation>
@@ -469,11 +469,11 @@
 		  	  	<xs:documentation>Corner of bounding box. Opposite corner in bounding_box_min.</xs:documentation>
 	  		  </xs:annotation>
         </xs:element>
-      </xs:sequence>
+      </xs:all>
       <xs:attribute name="sid" type="collada:sid_type" use="required">
 	    	<xs:annotation>
 		   		<xs:documentation>
-			   	The sid attribute is a text string value containing the sub-identifier of this element. 
+			   	The sid attribute is a text string value containing the sub-identifier of this element.
 			    This value must be unique within the scope of the parent element.
 			    </xs:documentation>
   		  </xs:annotation>
